@@ -1,0 +1,14 @@
+.banner-container {
+    background-image: url('../../../Assets/Banner/1000_F_314891663_ARjfcwEvGjCrjqvi9itjOqaos0MNr7ds.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    position: relative;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 250px;
+    margin-left: 220px;
+
+}

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className='sticky-top'>
+            <nav style={{ height: "80px" }} className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

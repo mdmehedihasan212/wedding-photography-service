@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "picture": "https://i.ibb.co/L5stKHV/pakage-img-1.webp",
+        "price": 500,
+        "name": "Silver",
+        "description": "Bride and groom prep and guest arrivals and full ceremony and candid group shots"
+    },
+    {
+        "id": "2",
+        "picture": "https://i.ibb.co/30bwHGT/groom-looks-awesome-bride-holding-her-waist-while-they-walk-across-field-8353-3619.webp",
+        "price": 800,
+        "name": "Gold",
+        "description": "Drone photography and evening twilight and evening guests and first dance"
+    },
+    {
+        "id": "3",
+        "picture": "https://i.ibb.co/4sVqrvh/pakage-img-3.webp",
+        "price": 1200,
+        "name": "Fusion",
+        "description": "The drone footage and photography will be complimented with additional video"
+    }
+]

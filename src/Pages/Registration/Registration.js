@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
-import './Registration.css';
+import SocialSignUp from './SocialSignUp';
 
 const Registration = () => {
 
@@ -80,6 +80,7 @@ const Registration = () => {
                 <Button variant="primary" type="submit">
                     {registration ? "Login" : "Registration"}
                 </Button>
+                <SocialSignUp />
             </Form>
         </div>
     );

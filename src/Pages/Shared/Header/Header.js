@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
@@ -28,7 +29,11 @@ const Header = () => {
                                 <Link className="nav-link active ms-3" to="/about">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/registration">Sign up</Link>
+                                {user ?
+                                    <Link onClick={() => signOut(auth)} className="nav-link active ms-3" to="/registration">Sign out</Link>
+                                    :
+                                    <Link className="nav-link active ms-3" to="/registration">Sign up</Link>
+                                }
                             </li>
                         </ul>
                     </div>

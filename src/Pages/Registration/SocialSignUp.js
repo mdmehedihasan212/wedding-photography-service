@@ -28,7 +28,7 @@ const SocialSignUp = () => {
                     Facebook Sign in
                 </Button>
                 <Button onClick={() => signInWithGithub()} className="w-100 mt-2" variant="primary" type="submit">
-                    <img className="mx-2" src={github} alt="github icon" />
+                    <img style={{ height: "35px" }} className="mx-2" src={github} alt="github icon" />
                     Github Sign in
                 </Button>
             </article>

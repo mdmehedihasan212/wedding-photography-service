@@ -77,7 +77,7 @@ const Registration = () => {
                 {createError && <p className='text-danger'>{createError.message}</p>}
                 {createUser && <p className='text-success'>User create successfully</p>}
                 {signInUser && <p className='text-success'>User login successfully</p>}
-                <Button variant="primary" type="submit">
+                <Button className="w-100" variant="primary" type="submit">
                     {registration ? "Login" : "Registration"}
                 </Button>
                 <SocialSignUp />

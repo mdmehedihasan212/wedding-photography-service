@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <section className="d-flex m-4 p-2 text-break">
+        <section className="d-flex m-4 p-2">
             <div>
                 <h3>(1) Difference between authorization and authentication ?</h3>
                 <ul>

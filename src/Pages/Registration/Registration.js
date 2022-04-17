@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import SocialSignUp from './SocialSignUp';
@@ -10,7 +10,7 @@ const Registration = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [registration, setRegistration] = useState(false);
-    const [user, loading, error] = useAuthState(auth);
+    const [error, setError] = useState("");
     const [userInfo, setUserInfo] = useState({
         name: "",
         email: "",
@@ -32,9 +32,12 @@ const Registration = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const from = location.state?.from?.pathname || "/";
-    if (createUser || signInUser) {
-        navigate(from, { replace: true });
-    }
+
+    useEffect(() => {
+        if (createUser || signInUser) {
+            navigate(from, { replace: true });
+        }
+    }, [createUser, signInUser])
 
     const GetUserEmail = event => {
         setUserInfo({ ...userInfo, email: event.target.value });
@@ -44,10 +47,19 @@ const Registration = () => {
         setUserInfo({ ...userInfo, password: event.target.value });
     }
 
+    const GetUserConfirmPassword = event => {
+        setUserInfo({ ...userInfo, confirmPassword: event.target.value });
+    }
+
     const FormSubmit = event => {
         event.preventDefault();
 
         if (!registration) {
+
+            if (userInfo.password !== userInfo.confirmPassword) {
+                setError("Password don't match")
+                return;
+            }
             createUserWithEmailAndPassword(userInfo.email, userInfo.password);
         }
         else {
@@ -69,11 +81,12 @@ const Registration = () => {
                     <Form.Control onChange={GetUserPassword} type="password" placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-                    {!registration && <Form.Control type="password" placeholder="Confirm Password" required />}
+                    {!registration && <Form.Control onChange={GetUserConfirmPassword} type="password" placeholder="Confirm Password" required />}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check onChange={() => setRegistration(!registration)} type="checkbox" label={!registration ? "Already have an account!" : "I have no account!"} />
                 </Form.Group>
+                <p className='text-danger'>{error}</p>
                 {createError && <p className='text-danger'>{createError.message}</p>}
                 {createUser && <p className='text-success'>User create successfully</p>}
                 {signInUser && <p className='text-success'>User login successfully</p>}

@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
-import google from '../../Assets/social/google.png';
-import facebook from '../../Assets/social/facebook.png';
-import github from '../../Assets/social/github.png';
+import google from '../../Assets/Social icon/google.png';
+import facebook from '../../Assets/Social icon/facebook.png';
+import github from '../../Assets/Social icon/github.png';
 
 const SocialSignUp = () => {
     const [signInWithGoogle, googleError] = useSignInWithGoogle(auth);

@@ -11,6 +11,7 @@ import Checkout from './Pages/Home/Checkout/Checkout';
 import Loading from './Pages/Shared/Loading/Loading';
 import Registration from './Pages/Registration/Registration';
 import RequireAuth from './Pages/RequaireAuth/RequireAuth';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/loading" element={<Loading />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

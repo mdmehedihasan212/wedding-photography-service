@@ -1,45 +1,39 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase/Firebase.init';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     return (
-        <div className='sticky-top'>
-            <nav style={{ height: "80px" }} className="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div className="container-fluid">
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse container" id="navbarTogglerDemo01">
-                        <Link className="navbar-brand" to="/">Wedding Photography</Link>
-                        <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/services">Services</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/blogs">Blogs</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/about">About</Link>
-                            </li>
-                            <li className="nav-item">
-                                {user ?
-                                    <Link onClick={() => signOut(auth)} className="nav-link active ms-3" to="/registration">Sign out</Link>
+        <>
+            <Navbar collapseOnSelect sticky='top' expand="lg" bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand as={Link} className="ms-4" to="/">Wedding Photography</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="ms-auto">
+                            <Nav.Link as={Link} className="ms-4" to="/">Home</Nav.Link>
+                            <Nav.Link as={Link} className="ms-4" to="/services">Services</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link as={Link} className="ms-4" to="/blogs">Blogs</Nav.Link>
+                            <Nav.Link as={Link} className="ms-4" to="/about">About</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            {
+                                user ?
+                                    <Nav.Link onClick={() => signOut(auth)} as={Link} className="ms-4" to="/registration">Sign out</Nav.Link>
                                     :
-                                    <Link className="nav-link active ms-3" to="/registration">Sign up</Link>
-                                }
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+                                    <Nav.Link as={Link} className="ms-4" to="/registration">Sign up</Nav.Link>
+                            }
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </>
     );
 };
 

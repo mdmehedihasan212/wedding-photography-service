@@ -23,9 +23,7 @@ const Blogs = () => {
             </div>
             <div>
                 <ul>
-                    <h3>What other services does firebase provide other than authentication
-
-                        ?</h3>
+                    <h3>(3) What other services does firebase provide other than authentication ?</h3>
                     <li>Firebase many services provide us, Most useful of them are:
                         (1) Cloud Firestore
                         (2) Hosting

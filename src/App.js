@@ -10,6 +10,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import Checkout from './Pages/Home/Checkout/Checkout';
 import Loading from './Pages/Shared/Loading/Loading';
 import Registration from './Pages/Registration/Registration';
+import RequireAuth from './Pages/RequaireAuth/RequireAuth';
 
 function App() {
   return (
@@ -19,7 +20,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/checkout/:userId" element={<Checkout />}></Route>
+        <Route path="/checkout/:userId" element={
+          <RequireAuth>
+            <Checkout />
+          </RequireAuth>
+        }></Route>
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />

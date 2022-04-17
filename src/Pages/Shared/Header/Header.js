@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../Firebase/Firebase.init';
 
 const Header = () => {
+    const [user, loading, error] = useAuthState(auth);
     return (
         <div className='sticky-top'>
             <nav style={{ height: "80px" }} className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -25,7 +28,7 @@ const Header = () => {
                                 <Link className="nav-link active ms-3" to="/about">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active ms-3" to="/registration">Registration</Link>
+                                <Link className="nav-link active ms-3" to="/registration">Sign up</Link>
                             </li>
                         </ul>
                     </div>

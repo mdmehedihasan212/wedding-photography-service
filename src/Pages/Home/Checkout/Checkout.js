@@ -5,10 +5,10 @@ import usePackage from '../../../Hooks/usePackage';
 const Checkout = () => {
     const { userId } = useParams();
     console.log(userId);
-    const packages=usePackage([]);
+    const packages = usePackage([]);
     return (
         <div>
-            <h1>Checkout</h1>
+            <h1>Checkout id: {userId}</h1>
         </div>
     );
 };

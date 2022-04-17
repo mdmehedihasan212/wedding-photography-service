@@ -1,15 +1,15 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import auth from '../../Firebase/Firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
 const RequireAuth = ({ children }) => {
-    const location = useLocation();
     const [user, loading] = useAuthState(auth);
+    let location = useLocation();
 
     if (loading) {
-        return <Loading></Loading>
+        return <Loading />
     }
 
     if (!user) {
@@ -17,7 +17,7 @@ const RequireAuth = ({ children }) => {
         // trying to go to when they were redirected. This allows us to send them
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
-        return <Navigate to="/login" state={{ from: location }} replace />;
+        return <Navigate to="/registration" state={{ from: location }} replace />;
     }
 
     return children;

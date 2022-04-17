@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Service = ({ pack }) => {
     const { id, name, picture, price, description } = pack || {};
-    console.log(pack);
     return (
         <div className='col-4'>
             <div className="card" style={{ width: "20rem" }}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Service = ({ pack }) => {
-    const { name, picture, price, description } = pack || {};
+    const { id, name, picture, price, description } = pack || {};
     console.log(pack);
     return (
         <div className='col-4'>
@@ -12,7 +12,7 @@ const Service = ({ pack }) => {
                     <h3 className="card-title">{name}</h3>
                     <h5 className="card-title">Price: ${price}</h5>
                     <p className="card-text">{description}</p>
-                    <Link to="#" className="btn btn-primary">Book Now</Link>
+                    <Link to={`/checkout/${id}`} className="btn btn-primary">Book Now</Link>
                 </div>
             </div>
         </div>

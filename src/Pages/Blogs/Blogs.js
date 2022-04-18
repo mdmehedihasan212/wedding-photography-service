@@ -1,10 +1,11 @@
 import React from 'react';
+import './Blogs.css';
 
 const Blogs = () => {
     return (
-        <section className="d-flex m-4 p-2">
+        <section className="blogs-section m-4 p-2 g-2">
             <div>
-                <h3>(1) Difference between authorization and authentication ?</h3>
+                <  h4>Difference between authorization and authentication ?</  h4>
                 <ul>
                     <li>Authentication means verifies who user is || Authorization means what resources user can access.</li>
                     <li>Authentication works through password and OTP and others systems || Authorization work through setting are implement and maintained by organization.</li>
@@ -13,7 +14,7 @@ const Blogs = () => {
                 </ul>
             </div>
             <div>
-                <h3>(2) Why are you using firebase? What other options do you have to implement authentication ?</h3>
+                <  h4>Why are you using firebase? What other options do you have to implement authentication ?</  h4>
                 <ul>
                     <li>Firebase authentication provides backend service and easy to use SDKs and ready made UI libraries to users to your app/web. It's supports famous application authentication systems.</li>
                     <li>List others option do have implement authentication below
@@ -23,7 +24,7 @@ const Blogs = () => {
             </div>
             <div>
                 <ul>
-                    <h3>(3) What other services does firebase provide other than authentication ?</h3>
+                    <  h4>What other services does firebase provide other than authentication ?</  h4>
                     <li>Firebase many services provide us, Most useful of them are:
                         (1) Cloud Firestore
                         (2) Hosting

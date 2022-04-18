@@ -5,9 +5,10 @@ import './Services.css';
 
 const Services = () => {
     const packages = usePackage([]);
+
     return (
         <div className='container'>
-            <h1 className='services-header'>My Services</h1>
+            <h1 className='text-center text-warning m-5'>My Services</h1>
             <div className="services-container">
                 {
                     packages?.map(pack => <Service

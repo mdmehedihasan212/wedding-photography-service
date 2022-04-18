@@ -5,13 +5,6 @@
 
 }
 
-.services-header {
-    color: goldenrod;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 30px;
-}
-
 @media screen and (max-width: 992px) {
 
     .services-container {

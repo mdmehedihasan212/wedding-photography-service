@@ -13,7 +13,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect sticky='top' expand="lg" bg="light" variant="dark">
                 <Container>
-                    <h1 className="nav-title">Wedding Photography</h1>
+                    <h1 className="text-warning">Wedding Photography</h1>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="header ms-auto">
@@ -23,6 +23,7 @@ const Header = () => {
                         <Nav className="header">
                             <CustomLink as={Link} to="/blogs">Blogs</CustomLink>
                             <CustomLink as={Link} to="/about">About</CustomLink>
+                            <CustomLink as={Link} to="/contact">Contact</CustomLink>
                         </Nav>
                         <Nav className="header">
                             {

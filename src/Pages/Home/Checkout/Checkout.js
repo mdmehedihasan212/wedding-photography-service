@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../../Firebase/Firebase.init';
@@ -49,7 +49,7 @@ const Checkout = () => {
     return (
         <div>
             <Form onSubmit={FormSubmit} className='w-25 mx-auto'>
-                <Form.Text className="text-center text-dark m-2">
+                <Form.Text className="text-center text-warning m-2">
                     <h1>Booking Form</h1>
                     <h5>Choses Package : {userId}</h5>
                 </Form.Text>
@@ -63,19 +63,19 @@ const Checkout = () => {
                     <Form.Control onChange={GetUserAddress} type="text" placeholder="Address" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPhone">
-                    <Form.Control onChange={GetUserPhone} type="number" placeholder="Phone" required />
+                    <Form.Control onChange={GetUserPhone} type="text" placeholder="Phone" required />
                 </Form.Group>
                 <p className='text-success'>{success}</p>
                 <p className='text-danger'>{userError}</p>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" onClick={() => setAgree(!agree)} label="Accept booking terms and condition!" />
                 </Form.Group>
-                <Button
-                    disabled={!agree}
-                    variant="primary"
-                    type="submit">
+                <button
+                    className="w-100 btn btn-outline-warning"
+                    type="submit"
+                    disabled={!agree}>
                     Submit
-                </Button>
+                </button>
             </Form>
         </div>
     );

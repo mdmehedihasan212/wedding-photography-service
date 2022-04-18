@@ -8,7 +8,7 @@ const CustomLink = ({ children, to, ...props }) => {
     return (
         <div>
             <Link
-                style={{ color: match ? "goldenrod" : " " }}
+                style={{ color: match ? "gold" : " " }}
                 to={to}
                 {...props}
             >

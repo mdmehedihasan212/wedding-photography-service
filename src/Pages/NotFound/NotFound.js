@@ -11,7 +11,7 @@ const NotFound = () => {
             <div>
                 <h3>Oops!</h3>
                 <p>404 Page Not Found</p>
-                <Link to='/' className="btn btn-primary">Go Homepage</Link>
+                <Link to='/' className="btn btn-outline-warning">Go Homepage</Link>
             </div>
         </section>
     );

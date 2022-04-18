@@ -23,7 +23,6 @@ const Header = () => {
                         <Nav className="header">
                             <CustomLink as={Link} to="/blogs">Blogs</CustomLink>
                             <CustomLink as={Link} to="/about">About</CustomLink>
-                            <CustomLink as={Link} to="/contact">Contact</CustomLink>
                         </Nav>
                         <Nav className="header">
                             {

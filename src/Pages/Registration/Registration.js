@@ -5,9 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import SocialSignUp from './SocialSignUp';
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-import { async } from '@firebase/util';
 
 const Registration = () => {
 
@@ -16,29 +14,19 @@ const Registration = () => {
     const [registration, setRegistration] = useState(false);
     const [error, setError] = useState("");
     const [userInfo, setUserInfo] = useState({
-        name: "",
+        displayName: "",
         email: "",
         password: "",
         confirmPassword: ""
     })
-    const [
-        createUserWithEmailAndPassword,
-        createUser,
-        createLoading,
-        createError,
+    const [createUserWithEmailAndPassword, createUser, createError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [
-        signInWithEmailAndPassword,
-        signInUser,
-        signInloading,
-        signInerror,
-    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, signInUser] = useSignInWithEmailAndPassword(auth);
 
-    const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
     const from = location.state?.from?.pathname || "/";
-
     useEffect(() => {
         if (createUser || signInUser) {
             navigate(from, { replace: true });

@@ -10,7 +10,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import Checkout from './Pages/Home/Checkout/Checkout';
 import Loading from './Pages/Shared/Loading/Loading';
 import Registration from './Pages/Registration/Registration';
-import RequireAuth from './Pages/RequaireAuth/RequireAuth';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import NotFound from './Pages/NotFound/NotFound';
 
 function App() {

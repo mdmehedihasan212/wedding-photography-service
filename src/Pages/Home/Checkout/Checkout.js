@@ -3,8 +3,6 @@ import { Button, Form } from 'react-bootstrap';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../../Firebase/Firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
     const { userId } = useParams();
@@ -78,7 +76,6 @@ const Checkout = () => {
                     type="submit">
                     Submit
                 </Button>
-                <ToastContainer />
             </Form>
         </div>
     );

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import SocialSignUp from './SocialSignUp';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { async } from '@firebase/util';
 
 const Registration = () => {
 
@@ -22,7 +26,7 @@ const Registration = () => {
         createUser,
         createLoading,
         createError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [
         signInWithEmailAndPassword,
@@ -30,6 +34,8 @@ const Registration = () => {
         signInloading,
         signInerror,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
 
     const from = location.state?.from?.pathname || "/";
 
@@ -67,6 +73,11 @@ const Registration = () => {
         }
     }
 
+    const PasswordResetEmail = () => {
+        sendPasswordResetEmail(userInfo.email);
+        toast('Sent Password Reset Email');
+    }
+
     return (
         <div>
             <Form onSubmit={FormSubmit} className='w-25 mx-auto'>
@@ -86,6 +97,7 @@ const Registration = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check onChange={() => setRegistration(!registration)} type="checkbox" label={!registration ? "Already have an account!" : "I have no account!"} />
                 </Form.Group>
+                {registration && <Link onClick={PasswordResetEmail} to={'/registration'}>Are you forget password?</Link>}
                 <p className='text-danger'>{error}</p>
                 {createError && <p className='text-danger'>{createError.message}</p>}
                 {createUser && <p className='text-success'>User create successfully</p>}
@@ -94,6 +106,7 @@ const Registration = () => {
                     {registration ? "Login" : "Registration"}
                 </Button>
                 <SocialSignUp />
+                <ToastContainer />
             </Form>
         </div>
     );

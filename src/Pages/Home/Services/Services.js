@@ -6,7 +6,7 @@ import './Services.css';
 const Services = () => {
     const packages = usePackage([]);
     return (
-        <div className='main-container'>
+        <div className='container'>
             <h1 className='m-4 text-center'>My Services</h1>
             <div className="services-container">
                 {

@@ -4,7 +4,6 @@ import usePackage from '../../../Hooks/usePackage';
 
 const Checkout = () => {
     const { userId } = useParams();
-    console.log(userId);
     const packages = usePackage([]);
     return (
         <div>

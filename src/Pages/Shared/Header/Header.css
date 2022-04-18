@@ -1,0 +1,9 @@
+.nav-title {
+    color: goldenrod;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+    margin-left: 40px;
+}

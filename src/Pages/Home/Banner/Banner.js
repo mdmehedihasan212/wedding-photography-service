@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import banner1 from '../../../Assets/Banner/banner-1.jpg';
+import banner1 from '../../../Assets/Banner/banner-1.webp';
 import banner2 from '../../../Assets/Banner/banner-2.jpg';
-import banner3 from '../../../Assets/Banner/banner-3.jpg';
+import banner3 from '../../../Assets/Banner/banner-3.png';
 
 const Banner = () => {
     return (
@@ -15,10 +15,6 @@ const Banner = () => {
                         src={banner1}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>Love and Tenderness</h3>
-                        <p>brides wedding party in the elegant restaurant with a wonderful light and atmosphere</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
@@ -27,11 +23,6 @@ const Banner = () => {
                         src={banner2}
                         alt="Second slide"
                     />
-
-                    <Carousel.Caption>
-                        <h3>Love and Tenderness</h3>
-                        <p>brides wedding party in the elegant restaurant with a wonderful light and atmosphere</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
@@ -40,11 +31,6 @@ const Banner = () => {
                         src={banner3}
                         alt="Third slide"
                     />
-
-                    <Carousel.Caption>
-                        <h3>Love and Tenderness</h3>
-                        <p>brides wedding party in the elegant restaurant with a wonderful light and atmosphere</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
         </div>

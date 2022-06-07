@@ -28,13 +28,13 @@ const SocialSignUp = () => {
 
     return (
         <section>
-            <article className=" mt-4 d-flex align-items-center justify-content-center">
+            <article className="mt-4 d-flex align-items-center justify-content-center">
                 <div style={{ height: "20px" }} className="border-top w-50"></div>
                 <p className="px-2">or</p>
                 <div style={{ height: "20px" }} className="border-top w-50"></div>
             </article>
             <article>
-                <div className='d-flex mt-3 justify-content-between'>
+                <div className='d-flex mt-1 mb-4 justify-content-between'>
                     <button className="btn btn-outline-warning" onClick={() => signInWithGoogle()} type="submit">
                         <img className="d-block mx-2" src={google} alt="google icon" />
                         Google

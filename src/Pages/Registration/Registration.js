@@ -88,7 +88,7 @@ const Registration = () => {
 
     return (
         <div>
-            <Form onSubmit={FormSubmit} className='form-container'>
+            <Form onSubmit={FormSubmit} className='form-container mx-auto shadow px-4 py-4 mb-5 bg-body rounded mt-4'>
                 <h1 className='text-center m-4 text-warning'>{registration ? "Login" : "Registration"}</h1>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     {!registration && <Form.Control type="text" placeholder="Name" />}

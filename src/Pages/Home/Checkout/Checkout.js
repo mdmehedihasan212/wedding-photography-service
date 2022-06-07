@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../Firebase/Firebase.init';
 
 const Checkout = () => {
     const { userId } = useParams();
+
     const navigate = useNavigate();
     const [updateUser, setUpdateUser] = useState({
         name: "",
@@ -71,12 +72,13 @@ const Checkout = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" onClick={() => setAgree(!agree)} label="Accept booking terms and condition!" />
                 </Form.Group>
-                <button
+                <Link
+                    to={`/order-review/${userId}`}
                     className="w-100 btn btn-outline-warning mb-4"
                     type="submit"
                     disabled={!agree}>
                     Submit
-                </button>
+                </Link>
             </Form>
         </div>
     );

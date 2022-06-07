@@ -9,7 +9,7 @@ const usePackage = () => {
             .then(data => setPackages(data))
     }, [])
 
-    return packages;
+    return [packages];
 };
 
 export default usePackage;

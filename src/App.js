@@ -29,10 +29,14 @@ function App() {
             <Checkout />
           </RequireAuth>
         }></Route>
+        <Route path="/order-review/:orderId" element={
+          <RequireAuth>
+            <OrderReview />
+          </RequireAuth>
+        }></Route>
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/order-review" element={<OrderReview />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

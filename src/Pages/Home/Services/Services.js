@@ -4,7 +4,7 @@ import Service from '../Service/Service';
 import './Services.css';
 
 const Services = () => {
-    const packages = usePackage([]);
+    const [packages] = usePackage([]);
 
     return (
         <div className='container'>

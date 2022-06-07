@@ -1,5 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 import About from './Pages/About/About';
@@ -12,6 +14,7 @@ import Loading from './Pages/Shared/Loading/Loading';
 import Registration from './Pages/Registration/Registration';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import NotFound from './Pages/NotFound/NotFound';
+import OrderReview from './Pages/OrderReview/OrderReview';
 
 function App() {
   return (
@@ -29,10 +32,12 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/order-review" element={<OrderReview />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

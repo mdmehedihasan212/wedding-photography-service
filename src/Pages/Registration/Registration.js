@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Registration.css';
 import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
@@ -83,7 +84,7 @@ const Registration = () => {
 
     return (
         <div>
-            <Form onSubmit={FormSubmit} className='w-25 mx-auto'>
+            <Form onSubmit={FormSubmit} className='form-container'>
                 <h1 className='text-center m-4 text-warning'>{registration ? "Login" : "Registration"}</h1>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     {!registration && <Form.Control type="text" placeholder="Name" />}

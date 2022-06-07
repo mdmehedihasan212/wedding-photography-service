@@ -3,3 +3,17 @@
     margin-left: 20px;
     background-color: white;
 }
+
+@media screen and (max-width:576px) {
+    .footer-text {
+        font-size: 0.8em;
+    }
+
+    .text-warning {
+        font-size: 0.8em;
+    }
+
+    .social-button img {
+        width: 60%;
+    }
+}

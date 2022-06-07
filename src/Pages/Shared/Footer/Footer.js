@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <section className='d-flex mt-5 justify-content-around bg-warning p-3 text-dark bg-opacity-10'>
             <article>
-                <h2 className='text-warning'>Wedding Photography</h2>
+                <h2 className='footer-logo text-warning'>Wedding Photography</h2>
             </article>
             <article className='footer-text'>
                 <p><GrLocation /> Barishal City Corporation <br /><FiPhoneCall /> +01741-112233 <br /><MdOutlineMarkEmailRead /> support@gmail.com</p>

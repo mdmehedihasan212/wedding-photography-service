@@ -8,7 +8,7 @@ const Services = () => {
 
     return (
         <div className='container'>
-            <h1 className='text-center text-warning m-5'>My Services</h1>
+            <h1 className='service-title text-center text-warning m-5'>My Services</h1>
             <div className="services-container">
                 {
                     packages?.map(pack => <Service

@@ -17,15 +17,46 @@
 }
 
 @media screen and (max-width:992px) {
+    .review-title {
+        font-size: 30px;
+    }
+
     .review-container {
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-gap: 20px;
+    }
+
+    .card {
+        margin: 0 auto !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .review-title {
+        font-size: 30px;
+    }
+
+    .review-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .card {
+        margin: 0 auto !important;
     }
 }
 
 @media screen and (max-width:576px) {
+    .review-title {
+        font-size: 25px !important;
+    }
+
     .review-container {
         grid-template-columns: 1fr;
-        gap: 20px;
+        grid-gap: 20px;
+    }
+
+    .card {
+        margin: 0 auto !important;
     }
 }

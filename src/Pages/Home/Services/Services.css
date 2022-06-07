@@ -6,6 +6,9 @@
 }
 
 @media screen and (max-width: 992px) {
+    .service-title {
+        font-size: 40px;
+    }
 
     .services-container {
         grid-template-columns: 1fr 1fr;
@@ -14,6 +17,20 @@
 }
 
 @media screen and (max-width: 768px) {
+    .service-title {
+        font-size: 30px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .service-title {
+        font-size: 25px !important;
+    }
 
     .services-container {
         grid-template-columns: 1fr;

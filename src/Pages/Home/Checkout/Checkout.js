@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../Firebase/Firebase.init';
+import './Checkout.css';
 
 const Checkout = () => {
     const { userId } = useParams();
-
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
+
     const [updateUser, setUpdateUser] = useState({
         name: "",
         email: "",
@@ -41,7 +43,7 @@ const Checkout = () => {
         if (updateUser.phone.length === 11) {
             updateProfile({ displayName: updateUser.name })
             toast.success('Thank you for the booking.');
-            navigate('/order-review')
+            navigate(`/order-review/${userId}`)
         }
         else {
             setUserError('Phone number minimum eleven character')
@@ -51,7 +53,7 @@ const Checkout = () => {
 
     return (
         <div>
-            <Form onSubmit={FormSubmit} className='mx-auto shadow px-4 py-4 mb-5 bg-body rounded mt-4' style={{ width: '450px' }}>
+            <Form onSubmit={FormSubmit} className='booking-form shadow px-4 py-4 mb-5 bg-body rounded mt-4'>
                 <Form.Text className="text-center text-warning m-2">
                     <h1>Booking Form</h1>
                     <h5>Choses Package : {userId}</h5>
@@ -60,7 +62,7 @@ const Checkout = () => {
                     <Form.Control onChange={GetUserName} type="text" placeholder="Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control onChange={GetUserEmail} type="email" placeholder="Email" required />
+                    <Form.Control onChange={GetUserEmail} type="email" value={user?.email} disabled />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control onChange={GetUserAddress} type="text" placeholder="Address" required />
@@ -72,13 +74,12 @@ const Checkout = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" onClick={() => setAgree(!agree)} label="Accept booking terms and condition!" />
                 </Form.Group>
-                <Link
-                    to={`/order-review/${userId}`}
+                <button
                     className="w-100 btn btn-outline-warning mb-4"
                     type="submit"
                     disabled={!agree}>
                     Submit
-                </Link>
+                </button>
             </Form>
         </div>
     );

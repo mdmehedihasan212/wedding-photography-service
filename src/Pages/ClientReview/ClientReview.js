@@ -56,7 +56,7 @@ const ClientReview = () => {
 
     return (
         <section>
-            <h1 className='text-center text-warning my-5'>Client Reviews</h1>
+            <h1 className='review-title text-center text-warning my-5'>Client Reviews</h1>
             <div className='review-container'>
                 {
                     reviews.map(review => <div class="card" style={{ width: '18rem' }}>

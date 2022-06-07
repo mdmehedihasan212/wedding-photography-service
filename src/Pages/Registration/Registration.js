@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Registration.css';
-import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import SocialSignUp from './SocialSignUp';
@@ -30,8 +30,7 @@ const Registration = () => {
     const [signInWithEmailAndPassword, signInUser, signLoading] = useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-
-
+    const [updateProfile, updating] = useUpdateProfile(auth);
 
     const from = location.state?.from?.pathname || "/";
 
@@ -40,6 +39,10 @@ const Registration = () => {
             navigate(from, { replace: true });
         }
     }, [createUser, signInUser, navigate, from])
+
+    const GetUserName = event => {
+        setUserInfo({ ...userInfo, name: event.target.value });
+    }
 
     const GetUserEmail = event => {
         setUserInfo({ ...userInfo, email: event.target.value });
@@ -53,7 +56,7 @@ const Registration = () => {
         setUserInfo({ ...userInfo, confirmPassword: event.target.value });
     }
 
-    const FormSubmit = event => {
+    const FormSubmit = async (event) => {
         event.preventDefault();
 
         if (!registration) {
@@ -63,12 +66,13 @@ const Registration = () => {
                 return;
             }
 
-            createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            await updateProfile({ displayName: userInfo.name });
             setError("");
 
         }
         else {
-            signInWithEmailAndPassword(userInfo.email, userInfo.password);
+            await signInWithEmailAndPassword(userInfo.email, userInfo.password);
             setError("");
         }
     }
@@ -82,7 +86,7 @@ const Registration = () => {
 
     }
 
-    if (createLoading || signLoading) {
+    if (createLoading || signLoading || updating) {
         return <Loading />
     }
 
@@ -91,7 +95,7 @@ const Registration = () => {
             <Form onSubmit={FormSubmit} className='form-container mx-auto shadow px-4 py-4 mb-5 bg-body rounded mt-4'>
                 <h1 className='text-center m-4 text-warning'>{registration ? "Login" : "Registration"}</h1>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                    {!registration && <Form.Control type="text" placeholder="Name" />}
+                    {!registration && <Form.Control onChange={GetUserName} type="text" placeholder="Name" />}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control onChange={GetUserEmail} type="email" placeholder="Email" required />

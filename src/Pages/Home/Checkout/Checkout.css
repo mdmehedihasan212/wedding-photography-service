@@ -1,15 +1,11 @@
-.form-container {
+.booking-form {
     width: 450px;
     margin: 0 auto;
 }
 
 @media screen and (max-width:576px) {
-    .form-container {
+    .booking-form {
         width: 350px;
         margin: 0 auto;
-    }
-
-    .form-container h1 {
-        font-size: 30px
     }
 }

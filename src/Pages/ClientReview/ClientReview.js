@@ -35,7 +35,7 @@ const ClientReview = () => {
         },
         {
             id: 6,
-            img: "https://i.ibb.co/64crYj3/team-member-09-consult.jpg",
+            img: "https://i.ibb.co/k6rT52q/team-member-07-consult.jpg",
             name: 'Nik Ron',
             review: "This headset is really good for the price but there are very specific problems which I think the average person might be able to overlook but I can't seem to in the case of these headphones."
         },
@@ -60,8 +60,8 @@ const ClientReview = () => {
             <div className='review-container'>
                 {
                     reviews.map(review => <div class="card" style={{ width: '18rem' }}>
-                        <img className='img' src={review.img} class="card-img-top" alt="..." />
-                        <div class="card-body">
+                        <img className='reviewer-img' src={review.img} alt="" />
+                        <div class="card-body text-center">
                             <h5 class="card-title">{review.name}</h5>
                             <p class="card-text">{review.review}</p>
                         </div>

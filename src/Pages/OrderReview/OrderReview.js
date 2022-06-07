@@ -10,8 +10,10 @@ const OrderReview = () => {
     console.log(orderId);
 
     return (
-        <div>
-            <h1>Order Review</h1>
+        <div className='my-5'>
+            <h3 className='text-center'>Welcome</h3>
+            <h4 className='text-center'>{user.displayName} your booking {orderId} package</h4>
+            <p className='text-center text-warning'>Please wait for confirmation email</p>
         </div>
     );
 };

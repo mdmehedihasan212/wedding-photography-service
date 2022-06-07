@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Registration.css';
 import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -31,15 +31,15 @@ const Registration = () => {
 
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    if (createLoading || signLoading) {
-        return <Loading />
-    }
+
 
     const from = location.state?.from?.pathname || "/";
 
-    if (createUser || signInUser) {
-        navigate(from, { replace: true });
-    }
+    useEffect(() => {
+        if (createUser || signInUser) {
+            navigate(from, { replace: true });
+        }
+    }, [createUser, signInUser, navigate, from])
 
     const GetUserEmail = event => {
         setUserInfo({ ...userInfo, email: event.target.value });
@@ -80,6 +80,10 @@ const Registration = () => {
             setError("");
         }
 
+    }
+
+    if (createLoading || signLoading) {
+        return <Loading />
     }
 
     return (

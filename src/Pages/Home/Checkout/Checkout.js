@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../Firebase/Firebase.init';
 
 const Checkout = () => {
     const { userId } = useParams();
+    const navigate = useNavigate();
     const [updateUser, setUpdateUser] = useState({
         name: "",
         email: "",
@@ -39,6 +40,7 @@ const Checkout = () => {
         if (updateUser.phone.length === 11) {
             updateProfile({ displayName: updateUser.name })
             toast.success('Thank you for the booking.');
+            navigate('/order-review')
         }
         else {
             setUserError('Phone number minimum eleven character')

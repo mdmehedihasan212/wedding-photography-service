@@ -1,3 +1,23 @@
-.about-section img {
-    width: 200px;
+@media screen and (max-width:1200px) {
+    .card {
+        width: 30% !important;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .card {
+        width: 40% !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .card {
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .card {
+        width: 60% !important;
+    }
 }

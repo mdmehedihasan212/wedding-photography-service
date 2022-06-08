@@ -5,7 +5,7 @@ const Service = ({ pack }) => {
     const { name, picture, price, description } = pack || {};
 
     return (
-        <div className="card mx-auto shadow-sm bg-body rounded" style={{ width: "20rem" }}>
+        <div className="card mx-auto shadow-sm bg-body rounded g-4" style={{ width: "20rem" }}>
             <img style={{ height: "280px" }} src={picture} className="card-img-top p-2" alt="package img" />
             <div className="card-body text-center">
                 <h3>{name}</h3>

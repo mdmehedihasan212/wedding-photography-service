@@ -1,23 +1,25 @@
 import React from 'react';
-import './About.css';
 import image from '../../Assets/My image/Photo Of Mehedi Hasan.jpg';
+import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const About = () => {
     return (
-        <section className='container'>
-            <div class="card w-25 mx-auto my-5">
-                <img src={image} class="card-img-top mt-3 w-50 mx-auto" alt="..." />
-                <div className='p-3'>
-                    <h4 className='text-center'>Md Mehedi Hasan</h4>
-                    <ul className="card-text">
-                        <li>I want to learn web development and get a job as a web developer in a reputed company in the world.</li>
-                        <li>I want to reach my dream goal by working hard in the coming days to fulfill this dream of mine.</li>
-                        <li>Pray to Allah for me.</li>
-                    </ul>
-                </div>
-            </div>
-        </section >
-    );
+        <Card className='w-full mx-auto my-5' style={{ width: '25rem' }}>
+            <Card.Img variant="top" src={image} className="w-50 mx-auto my-3" />
+            <Card.Body className='px-4'>
+                <Card.Title>Name: Md Mehedi Hasan</Card.Title>
+                <Card.Text>
+                    I want to learn web development and get a job as a web developer in a reputed company in the world.
+                </Card.Text>
+                <Card.Text>
+                    I want to reach my dream goal by working hard in the coming days to fulfill this dream of mine.
+                </Card.Text>
+                <Card.Text>
+                    Pray to Allah for me.
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    )
 };
 
 export default About;

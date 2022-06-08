@@ -14,7 +14,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect sticky='top' expand="lg" bg="light" variant="dark">
                 <Container>
-                    <h1 className="logo text-warning">Wedding Photography</h1>
+                    <h3 className="logo text-warning">Wedding Photography</h3>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="header ms-auto">

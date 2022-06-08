@@ -6,8 +6,8 @@ const Services = () => {
     const [packages] = usePackage([]);
 
     return (
-        <section className='container text-uppercase mt-5'>
-            <h1 className='text-center text-warning'>My Services</h1>
+        <section className='container mt-5'>
+            <h3 className='text-center text-warning'>My Services</h3>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-5 mt-4">
                 {
                     packages?.map(pack => <Service
